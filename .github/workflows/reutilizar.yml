@@ -1,0 +1,15 @@
+name: reutilizar
+on:
+  workflow_call:
+    inputs:
+      username:
+        description: 'Permite mostrr el nombre de un usuario'
+        default: 'N\A'
+        required: false
+        type: string
+jobs:
+  print-user:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutando el job print-user
+        run: echo El usuario se llama ${{ inputs.username }}
