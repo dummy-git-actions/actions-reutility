@@ -13,3 +13,5 @@ jobs:
     steps:
       - name: Ejecutando el job print-user
         run: echo El usuario se llama ${{ inputs.username }}
+      - name: Estoy viendo
+        run: ls -la
