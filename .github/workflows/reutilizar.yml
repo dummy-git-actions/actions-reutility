@@ -15,7 +15,15 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Instalando Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 10.15.1
       - name: Clonando un repository
         run: git clone ${{ inputs.username }}
-      - name: Mostrando files
-        run: ls -la
+      - name: Instalando paquetes
+        run: npm install
+      - name: CREATE .npmrc
+        run: echo "${{secrets.NPM_TOKEN}}" > .npmrc
+      - name: 🚀 PUBLISH
+        run: npm publish
