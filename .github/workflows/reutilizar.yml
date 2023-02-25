@@ -7,6 +7,9 @@ on:
         default: 'N\A'
         required: false
         type: string
+    secrets:
+      NPM_TOKEN:
+        required: true
 jobs:
   print-user:
     runs-on: ubuntu-latest
@@ -28,7 +31,7 @@ jobs:
       - name: CREATE .npmrc
         run: |
           cd ./orcaslide
-          echo "${{ env.NPM_TOKEN }}" > .npmrc
+          echo "${{ secrets.NPM_TOKEN }}" > .npmrc
       - name: que tengo?
         run: |
           pwd
