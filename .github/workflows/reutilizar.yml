@@ -26,17 +26,18 @@ jobs:
           ref: master
           token: ${{ secrets.GIT_TOKEN }}
           path: "./paquete"
-        env:
-          NPM_TOKEN: ${{ secrets.GIT_TOKEN }}
       - name: Instalando dependencias
         run: | 
           ls -la
           cd ./paquete
           npm install
+      - name: Creando llave .npmrc
+        run: |
+          cd ./paquete
+          echo "${{ secrets.NPM_TOKEN }}" > .npmrc
+          cat ./npmrc
       - name: Publicando paquete
         run: |
           cd ./paquete
           npm cache clean --force
           npm publish
-        env:
-          NPM_TOKEN: ${{ secrets.GIT_TOKEN }}
