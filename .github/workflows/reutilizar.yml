@@ -15,11 +15,23 @@ jobs:
   clone_repo:
     runs-on: ubuntu-latest
     steps:
+      - name: Instalando NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
       - name: Clonando un repo
         uses: actions/checkout@v3
         with:
           repository: ${{ inputs.reponame }}
           ref: master
           token: ${{ secrets.GIT_TOKEN }}
-      - name: Que Tengo?
-        run: ls -la
+          path: "./paquete"
+      - name: Instalando dependencias
+        run: | 
+          ls -la
+          cd ./paquete
+          npm install
+      - name: Creando llave .npmrc
+        run: |
+          cd ./paquete
+          echo "${{ secrets.NPM_TOKEN }}" > .npmrc 
