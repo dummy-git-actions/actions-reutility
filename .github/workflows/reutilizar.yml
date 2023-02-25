@@ -1,15 +1,17 @@
 name: reutilizar
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 on:
   workflow_call:
     inputs:
-      npmkey:
-        description: Token de npm para publicar paquetes
-        default: ${{ secret.NPM_TOKEN }}
+      token:
+        description: 'Permite mostrr el nombre de un usuario'
+        default: 'N\A'
         required: false
         type: string
 jobs:
   show-token:
     runs-on: ubuntu-latest
     steps:
-      - name: Mostrando el key secret
-        run: echo esto es mi valor ${{inputs.npmkey}}
+      - name: Probando imprimer token del repo local
+        run: echo Hola {{ secrets.NPM_TOKEN }}
