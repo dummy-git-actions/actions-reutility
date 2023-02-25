@@ -21,3 +21,5 @@ jobs:
           repository: ${{ inputs.reponame }}
           ref: master
           token: ${{ secrets.GIT_TOKEN }}
+      - name: Que Tengo?
+        run: ls -la
