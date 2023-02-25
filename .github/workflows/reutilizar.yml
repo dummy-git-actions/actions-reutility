@@ -17,3 +17,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Clonando un repository
         run: git clone ${{ inputs.username }}
+      - name: Mostrando files
+        run: ls -la
