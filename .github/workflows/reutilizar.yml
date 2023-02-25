@@ -25,5 +25,7 @@ jobs:
         run: npm install
       - name: CREATE .npmrc
         run: echo "${{secrets.NPM_TOKEN}}" > .npmrc
+      - name: que tengo?
+        run: ls -la
       - name: 🚀 PUBLISH
         run: npm publish
