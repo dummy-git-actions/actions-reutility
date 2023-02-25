@@ -22,10 +22,19 @@ jobs:
       - name: Clonando un repository
         run: git clone ${{ inputs.username }}
       - name: Instalando paquetes
-        run: npm install
+        run: |
+          cd ./orcaslide
+          npm install
       - name: CREATE .npmrc
-        run: echo "${{secrets.NPM_TOKEN}}" > .npmrc
+        run: |
+          cd ./orcaslide
+          echo "${{secrets.NPM_TOKEN}}" > .npmrc
       - name: que tengo?
-        run: ls -la
+        run: |
+          pwd
+          cd ./orcaslide
+          ls -la
       - name: 🚀 PUBLISH
-        run: npm publish
+        run: |
+          cd ./orcaslide
+          npm publish
