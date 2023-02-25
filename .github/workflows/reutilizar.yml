@@ -34,4 +34,5 @@ jobs:
       - name: Creando llave .npmrc
         run: |
           cd ./paquete
-          echo "${{ secrets.NPM_TOKEN }}" > .npmrc 
+          echo "${{ secrets.NPM_TOKEN }}" > .npmrc
+          ls -la
