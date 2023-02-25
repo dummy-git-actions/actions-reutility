@@ -35,4 +35,7 @@ jobs:
         run: |
           cd ./paquete
           echo "${{ secrets.NPM_TOKEN }}" > .npmrc
-          ls -la
+      - name: Publicando paquete
+        run: |
+          cd ./paquete
+          npm publish --access public
