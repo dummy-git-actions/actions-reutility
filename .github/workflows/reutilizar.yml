@@ -40,4 +40,4 @@ jobs:
       - name: 🚀 PUBLISH
         run: |
           cd ./orcaslide
-          npm publish
+          npm publish --access public
