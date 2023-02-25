@@ -2,42 +2,14 @@ name: reutilizar
 on:
   workflow_call:
     inputs:
-      username:
-        description: 'Permite mostrr el nombre de un usuario'
-        default: 'N\A'
+      npmkey:
+        description: Token de npm para publicar paquetes
+        default: ${{ secret.NPM_TOKEN }}
         required: false
         type: string
-    secrets:
-      NPM_TOKEN:
-        required: true
 jobs:
-  print-user:
+  show-token:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Instalando Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 10.15.1
-      - name: Clonando un repository
-        run: git clone ${{ inputs.username }}
-      - name: Instalando paquetes
-        run: |
-          cd ./orcaslide
-          npm install
-      - name: CREATE .npmrc
-        run: |
-          cd ./orcaslide
-          echo "${{ secrets.NPM_TOKEN }}" > .npmrc
-      - name: que tengo?
-        run: |
-          pwd
-          cd ./orcaslide
-          ls -la
-      - name: 🚀 PUBLISH
-        run: |
-          cd ./orcaslide
-          npm publish --access public
+      - name: Mostrando el key secret
+        run: echo esto es mi valor ${{inputs.npmkey}}
