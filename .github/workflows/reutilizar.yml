@@ -1,17 +1,23 @@
 name: reutilizar
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 on:
   workflow_call:
     inputs:
-      token:
-        description: 'Permite mostrr el nombre de un usuario'
-        default: 'N\A'
-        required: false
+      reponame:
+        description: Nombre del repositorio que necesitamos clonar
+        required: true
         type: string
+    secrets:
+      NPM_TOKEN:
+        required: true
+      GIT_TOKEN:
+        required: true
 jobs:
-  show-token:
+  clone_repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Probando imprimer token del repo local
-        run: echo Hola ${{ secrets.NPM_TOKEN }}
+      - name: Clonando un repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ inputs.reponame }}
+          ref: master
+          token: ${{ secrets.GIT_TOKEN }}
