@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Probando imprimer token del repo local
-        run: echo Hola {{ secrets.NPM_TOKEN }}
+        run: echo Hola ${{ secrets.NPM_TOKEN }}
