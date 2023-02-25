@@ -38,4 +38,5 @@ jobs:
       - name: Publicando paquete
         run: |
           cd ./paquete
+          npm cache clean --force
           npm publish
