@@ -28,7 +28,7 @@ jobs:
       - name: CREATE .npmrc
         run: |
           cd ./orcaslide
-          echo "${{secrets.NPM_TOKEN}}" > .npmrc
+          echo "${{ secrets.NPM_TOKEN }}" > .npmrc
       - name: que tengo?
         run: |
           pwd
