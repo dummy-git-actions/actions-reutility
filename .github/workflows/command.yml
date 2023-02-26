@@ -1,0 +1,16 @@
+name: command
+on:
+  workflow_call:
+jobs:
+  install-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: corriendo commands
+        run: |
+          pwd
+          ls -la
+          mkdir ./demo
+          cd ./demo
+          pwd
+          node init -y
+          npm install react        

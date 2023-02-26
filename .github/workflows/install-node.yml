@@ -1,0 +1,18 @@
+name: install-node
+on:
+  workflow_call:
+    inputs:
+      username:
+        description: "LLave secreta"
+        required: false
+        default: "Se pasa la variable"
+        type: string
+jobs:
+  install-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install nodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+        
