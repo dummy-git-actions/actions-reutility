@@ -7,6 +7,6 @@ jobs:
   call-install-node:
     uses: ./.github/workflows/install-node.yml
     with:
-      username: "JORGE"
+      username: ${{ secrets.GIT_TOKEN }}
   call-execute-command:
     uses: ./.github/workflows/command.yml
