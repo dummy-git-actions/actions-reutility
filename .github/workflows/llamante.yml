@@ -5,8 +5,8 @@ on:
       - main
 jobs:
   call-install-node:
-    uses: ./.github/workflows/install-node.yml@main
+    uses: ./.github/workflows/install-node.yml
     with:
       username: "JORGE"
   call-execute-command:
-    uses: ./.github/workflows/command.yml@main
+    uses: ./.github/workflows/command.yml
