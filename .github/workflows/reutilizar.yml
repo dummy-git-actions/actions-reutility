@@ -36,6 +36,8 @@ jobs:
           cd ./paquete
           echo "${{ secrets.NPM_TOKEN }}" > .npmrc
           cat ./.npmrc
+      - name: Vars
+        run: echo ${{ variables.NPM_TOKEN }}
       - name: Publicando paquete
         run: |
           cd ./paquete
