@@ -2,7 +2,7 @@ name: command
 on:
   workflow_call:
 jobs:
-  install-node:
+  execute-command:
     runs-on: ubuntu-latest
     steps:
       - name: corriendo commands
