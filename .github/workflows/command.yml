@@ -13,4 +13,5 @@ jobs:
           cd ./demo
           pwd
           npm init -y
-          npm install react        
+          npm install react     
+          cat package.json   
