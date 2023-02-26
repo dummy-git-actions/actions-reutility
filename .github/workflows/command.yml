@@ -12,5 +12,5 @@ jobs:
           mkdir ./demo
           cd ./demo
           pwd
-          node init -y
+          npm init -y
           npm install react        
